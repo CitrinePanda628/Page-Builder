@@ -1,0 +1,13 @@
+import { getBranchIds, getParent } from './read'
+import type { Page } from './types'
+
+/** Removes an element and everything inside it. The body cannot be removed. */
+export function removeElement(page: Page, id: string): Page {
+  const parent = getParent(page, id)
+  const elements = { ...page.elements }
+
+  for (const removedId of getBranchIds(page, id)) delete elements[removedId]
+  elements[parent.id] = { ...parent, children: parent.children.filter((childId) => childId !== id) }
+
+  return { ...page, elements }
+}

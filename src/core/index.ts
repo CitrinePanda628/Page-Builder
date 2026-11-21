@@ -1,0 +1,13 @@
+// The one door to the core: other folders import from '../core'.
+export type { Blueprint } from './blueprint'
+export type { History } from './history'
+export type { Page, PageElement, Props, Styles } from './types'
+export { createId } from './create-id'
+export { createElement, createPage } from './create'
+export { getBranchIds, getElement, getParent, isInside } from './read'
+export { addElement } from './add'
+export { removeElement } from './remove'
+export { moveElement } from './move'
+export { updateProps, updateStyles } from './update'
+export { addVersion, createHistory, redo, undo } from './history'
+export { addBlueprint, buildPage } from './blueprint'

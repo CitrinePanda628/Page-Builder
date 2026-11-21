@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+/* Tailwind sizes are in rem, so this one number scales the whole editor. */
+html {
+  font-size: 17px;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
+}
+
+/* The editor's colours. Each --color-x becomes bg-x, text-x, border-x...
+   The page you design keeps its own colours. */
+@theme {
+  --color-panel: #ffffff;
+  --color-backdrop: #e7e7ea;
+  --color-ink: #1e1e1e;
+  --color-muted: #5f6368;
+  --color-line: #e0e0e0;
+  --color-edge: #c3c4c7;
+  --color-hover: #f0f0f1;
+
+  --color-accent: #15803d;
+  --color-on-accent: #ffffff;
+  --color-accent-soft: #ecfdf3;
+  --color-accent-text: #14532d;
+
+  --color-good: #00733c;
+  --color-good-soft: #e3f4ea;
+  --color-danger: #c00f1a;
+  --color-danger-soft: #fbe9ea;
+}
+
+.dark {
+  --color-panel: #1e1e1e;
+  --color-backdrop: #111111;
+  --color-ink: #f0f0f0;
+  --color-muted: #a7aaad;
+  --color-line: #2f2f2f;
+  --color-edge: #50575e;
+  --color-hover: #2c2c2c;
+
+  --color-accent: #4ade80;
+  --color-on-accent: #052e16;
+  --color-accent-soft: #0f2e1c;
+  --color-accent-text: #dcfce7;
+
+  --color-good: #5fd197;
+  --color-good-soft: #0d3320;
+  --color-danger: #ff8a91;
+  --color-danger-soft: #4a1115;
+
+  color-scheme: dark;
+}
+
+/* Slim, rounded scrollbars instead of the browser's default ones. */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 9999px;
+  background: var(--color-edge) padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-muted);
+}
+
+/* Firefox has no ::-webkit-scrollbar; it gets the simple version. */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-edge) transparent;
+  }
+}
