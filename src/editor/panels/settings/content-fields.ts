@@ -1,14 +1,14 @@
-/** One box in the Content group, for one prop of the element. */
+// one box in the Content group, for one prop of the element
 export interface ContentField {
   key: string
   label: string
-  /** The HTML name, like 'href'. Empty for none. */
+  // the html name like 'href', empty for none
   code: string
   help: string
   placeholder: string
-  /** The HTML this value makes: html('Hello') → '<h1>Hello</h1>'. */
+  // the html this value makes: html('Hello') → '<h1>Hello</h1>'
   html: (value: string) => string
-  /** text: one line. lines: several lines. yesno: a Yes / No choice. */
+  // text: one line, lines: several lines, yesno: a Yes / No choice
   kind?: 'text' | 'lines' | 'yesno'
 }
 
@@ -23,7 +23,7 @@ function words(tag: string, placeholder: string): ContentField {
   }
 }
 
-/** The Content boxes of each type. Types not listed have only a Name. */
+// the Content boxes of each type, types not listed only get a Name
 export const CONTENT_FIELDS: Record<string, ContentField[]> = {
   heading: [words('h1', 'e.g. Fresh bread every morning')],
   text: [
@@ -128,7 +128,7 @@ export const CONTENT_FIELDS: Record<string, ContentField[]> = {
   ],
 }
 
-/** Every element but the body can have a name. */
+// every element but the body can have a name
 export const NAME_FIELD: ContentField = {
   key: 'name',
   label: 'Name',

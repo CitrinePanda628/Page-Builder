@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import { Eye, ListTree, Moon, PanelRight, Plus, Redo2, Sun, Undo2 } from 'lucide-react'
 import { useEditorStore } from '../state/editor-store'
 import { IconButton, Logo, TextButton } from './buttons'
-import { ExportDialog } from './export-dialog'
 import { PreviewBar } from './preview-bar'
 
 export function TopBar() {
@@ -18,7 +16,6 @@ export function TopBar() {
   const toggleTheme = useEditorStore((state) => state.toggleTheme)
   const isPreview = useEditorStore((state) => state.mode === 'preview')
   const togglePreview = useEditorStore((state) => state.togglePreview)
-  const [isExporting, setExporting] = useState(false)
 
   if (isPreview) return <PreviewBar />
 
@@ -62,15 +59,10 @@ export function TopBar() {
           <Eye size={18} />
           Preview
         </TextButton>
-        <TextButton look="primary" onClick={() => setExporting(true)}>
-          Export
-        </TextButton>
         <IconButton label="Settings" pressed={rightPanel} onClick={toggleRightPanel}>
           <PanelRight size={20} />
         </IconButton>
       </div>
-
-      {isExporting && <ExportDialog onClose={() => setExporting(false)} />}
     </header>
   )
 }

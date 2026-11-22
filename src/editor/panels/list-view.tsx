@@ -2,7 +2,7 @@ import { getElement } from '../../core'
 import { TypeIcon } from '../elements/type-icon'
 import { useEditorStore, usePage } from '../state/editor-store'
 
-/** The page as an indented list. Pointing at a row outlines the block on the page. */
+// the page as an indented list, pointing at a row outlines the block on the page
 export function ListView() {
   const page = usePage()
   const setHovered = useEditorStore((state) => state.setHovered)

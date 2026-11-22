@@ -12,7 +12,7 @@ import type { StyleGroup } from './types'
 
 export type { Control, StyleGroup, StyleSetting } from './types'
 
-/** Every group of style settings, in the order of the settings panel. One file each. */
+// every group of style settings in the settings panel order, one file each
 export const STYLE_GROUPS: StyleGroup[] = [
   LAYOUT,
   PLACE,

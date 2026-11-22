@@ -10,7 +10,7 @@ const GROUPS = [
   { group: 'interactive', title: 'Interactive' },
 ] as const
 
-/** Every block you can add: drag one onto the page, or click it. */
+// every block you can add, drag it onto the page or click it
 export function BlockInserter() {
   return (
     <div className="p-4">

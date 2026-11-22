@@ -1,4 +1,4 @@
-/** Makes a random id like "f3a9c01b7e2d4c55" (16 characters, 0-9 and a-f). */
+// random 16 character id, 0-9 and a-f
 export function createId(): string {
   const bytes = crypto.getRandomValues(new Uint8Array(8))
   return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('')

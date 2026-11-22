@@ -9,10 +9,8 @@ export type { EditorProps } from './tags/tag-props'
 const BUTTON = 'rounded-md bg-zinc-900 px-5 py-2.5 text-white'
 const INPUT = 'rounded-md border border-zinc-300 px-3 py-2'
 
-/**
- * Draws one element as its real HTML tag, with its styles on that tag:
- * a heading is an <h1 style="...">, a list a <ul style="...">.
- */
+// draws one element as its real html tag with its styles on it
+// e.g. a heading is an <h1 style="...">
 export function ElementTag(tagProps: TagProps) {
   const { element, editorProps, childViews, endLine } = tagProps
   const { props } = element
@@ -100,7 +98,7 @@ export function ElementTag(tagProps: TagProps) {
       return <PopupTag {...tagProps} />
 
     default:
-      // body, section, row, tab...: a box that holds other elements.
+      // body, section, row, tab...: boxes that hold other elements
       return (
         <div ref={ref} className={className} {...attributes}>
           {childViews}

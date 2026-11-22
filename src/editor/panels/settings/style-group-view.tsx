@@ -13,11 +13,11 @@ import type { StyleGroup, StyleSetting } from './style-groups'
 interface StyleGroupViewProps {
   group: StyleGroup
   element: PageElement
-  /** What the element uses now, from useCurrentStyles. */
+  // what the element uses now, from useCurrentStyles
   current: Styles
 }
 
-/** One group from style-groups/: presets, then a control per setting that fits this element. */
+// one group from style-groups/: presets, then a control for each setting that fits this element
 export function StyleGroupView({ group, element, current }: StyleGroupViewProps) {
   const updateStyles = useEditorStore((state) => state.updateStyles)
   const change = (changes: Styles) => updateStyles(element.id, changes)
@@ -55,13 +55,13 @@ export function StyleGroupView({ group, element, current }: StyleGroupViewProps)
   )
 }
 
-/** A setting shows when it fits the element type, and its `onlyWhen` is met. */
+// a setting shows when it fits the element type and its onlyWhen is met
 function isShown({ showFor, onlyWhen }: StyleSetting, element: PageElement): boolean {
   if (showFor && !showFor(element.type)) return false
   return !onlyWhen || onlyWhen.values.includes(element.styles[onlyWhen.key] ?? '')
 }
 
-/** padding counts as set when the shorthand or any one side is set. */
+// padding counts as set if the shorthand or any one side is set
 function isSet({ key, control }: StyleSetting, styles: Styles): boolean {
   if (control.kind !== 'sides') return Boolean(styles[key])
   return Object.keys(styles).some((name) => name.startsWith(key))
@@ -74,7 +74,7 @@ interface StyleFieldProps {
   onChange: (changes: Styles) => void
 }
 
-/** Picks the control for one setting, and gives it the value, what is used now, and the code. */
+// picks the control for one setting
 function StyleField({ setting, styles, current, onChange }: StyleFieldProps) {
   const { key, label, help, control } = setting
   const cssName = toCssName(key)

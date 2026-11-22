@@ -5,7 +5,7 @@ interface IconBadgeProps {
   size: 'small' | 'large'
 }
 
-/** A block's icon, in a light square. */
+// a block's icon in a light square
 export function IconBadge({ icon: Icon, size }: IconBadgeProps) {
   const box = size === 'large' ? 'size-10 rounded-md' : 'size-7 rounded'
   return (

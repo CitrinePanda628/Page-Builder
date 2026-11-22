@@ -3,13 +3,13 @@ import { Field, INPUT_CLASS, type FieldInfo } from './field'
 interface ColorControlProps {
   info: FieldInfo
   value: string
-  /** What the element uses now, like 'rgb(28, 25, 23)'. */
+  // what the element uses now, like 'rgb(28, 25, 23)'
   current: string
   codeLine: string
   onChange: (value: string) => void
 }
 
-/** A colour picker, and a box for any colour: #ff0000, red, rgb(...). */
+// a colour picker plus a box for any colour: #ff0000, red, rgb(...)
 export function ColorControl({ info, value, current, codeLine, onChange }: ColorControlProps) {
   return (
     <Field info={info} isSet={value !== ''} codeLine={codeLine} onReset={() => onChange('')}>
@@ -33,10 +33,8 @@ export function ColorControl({ info, value, current, codeLine, onChange }: Color
   )
 }
 
-/**
- * The picker only understands #rrggbb:
- *   '#ea580c' → '#ea580c'      'rgb(28, 25, 23)' → '#1c1917'      'red' → '#000000' (unknown)
- */
+// the picker only understands #rrggbb
+// '#ea580c' → '#ea580c'   'rgb(28, 25, 23)' → '#1c1917'   'red' → '#000000' (unknown)
 function toHex(color: string): string {
   if (/^#[0-9a-f]{6}$/i.test(color)) return color
   const parts = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)/)

@@ -4,11 +4,11 @@ import { KeywordChips } from './keyword-chips'
 interface TextControlProps {
   info: FieldInfo
   value: string
-  /** Shown in grey while the box is empty: what is used now, or an example. */
+  // grey text while the box is empty: what's used now, or an example
   placeholder: string
   codeLine: string
   keywords?: string[]
-  /** A bigger box where Enter starts a new line. */
+  // a bigger box where Enter starts a new line
   multiline?: boolean
   onChange: (value: string) => void
 }

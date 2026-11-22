@@ -6,17 +6,17 @@ const SIDES = ['Top', 'Right', 'Bottom', 'Left']
 
 interface SidesControlProps {
   info: FieldInfo
-  /** 'padding' or 'margin'. */
+  // 'padding' or 'margin'
   box: string
   styles: Styles
-  /** What the element uses now, per side: { paddingTop: '32px', ... }. */
+  // what the element uses now per side: { paddingTop: '32px', ... }
   current: Styles
   onChange: (changes: Styles) => void
 }
 
-/** Four boxes, placed like the sides of a box. 16 becomes 16px when you leave a box. */
+// four boxes laid out like the sides of a box, 16 becomes 16px when you leave one
 export function SidesControl({ info, box, styles, current, onChange }: SidesControlProps) {
-  // Each side: its own value, or else its part of the shorthand ('32px' → all four).
+  // each side: its own value, else its part of the shorthand ('32px' → all four)
   const fromShorthand = expandBox(styles[box] ?? '')
   const sides = SIDES.map((side, index) => styles[`${box}${side}`] ?? fromShorthand[index] ?? '')
   const now = SIDES.map((side) => current[`${box}${side}`] ?? '0px')

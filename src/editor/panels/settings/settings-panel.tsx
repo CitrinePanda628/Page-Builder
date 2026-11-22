@@ -8,10 +8,8 @@ import { StyleGroupView } from './style-group-view'
 import { STYLE_GROUPS } from './style-groups'
 import { useCurrentStyles } from './use-current-styles'
 
-/**
- * Everything you can change about one block. The key gives every block a fresh panel,
- * so its groups open and close to match it.
- */
+// everything you can change about one block
+// the key gives each block a fresh panel so its groups reset
 export function SettingsPanel({ elementId }: { elementId: string }) {
   return <ElementSettings key={elementId} elementId={elementId} />
 }

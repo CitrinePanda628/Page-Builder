@@ -1,16 +1,15 @@
 import type { ReactNode } from 'react'
 
 interface IconButtonProps {
-  /** Read out by screen readers, and shown when you hover. */
+  // read out by screen readers and shown on hover
   label: string
   onClick: () => void
   disabled?: boolean
-  /** Highlighted, for a panel that is open. */
+  // highlighted when its panel is open
   pressed?: boolean
   children: ReactNode
 }
 
-/** A square button with only an icon, like the ones in the top bar. */
 export function IconButton({ label, onClick, disabled, pressed, children }: IconButtonProps) {
   const look = pressed ? 'bg-ink text-panel' : 'hover:bg-hover hover:text-accent'
 
@@ -31,7 +30,7 @@ export function IconButton({ label, onClick, disabled, pressed, children }: Icon
 
 interface TextButtonProps {
   onClick: () => void
-  /** primary: filled blue, for the main action. secondary: outlined. */
+  // primary is filled blue, secondary is outlined
   look: 'primary' | 'secondary'
   children: ReactNode
 }
@@ -53,7 +52,6 @@ export function TextButton({ onClick, look, children }: TextButtonProps) {
   )
 }
 
-/** The square in the top-left corner. */
 export function Logo() {
   return (
     <div

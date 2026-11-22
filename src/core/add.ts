@@ -2,10 +2,7 @@ import { checkPosition, insertAt, saveElements } from './helpers'
 import { getElement } from './read'
 import type { Page, PageElement } from './types'
 
-/**
- * Puts a new element inside a parent element.
- * Without `position` it goes last; with `position` it goes there (0 = first).
- */
+// puts a new element inside a parent, it goes last unless you give a position
 export function addElement(
   page: Page,
   element: PageElement,

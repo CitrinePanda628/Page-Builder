@@ -16,12 +16,12 @@ import { canPlace, getElementType } from '../elements/element-types'
 import { useEditorStore } from '../state/editor-store'
 import { canMoveTo, getDropTarget, type DropTarget } from './drop-target'
 
-/** What a dragged thing carries: a new element from the Add panel, or one on the page. */
+// what's being dragged: a new element from the Add panel, or one already on the page
 export type DragData = { kind: 'new'; type: string } | { kind: 'move'; id: string }
 
-/** Drag and drop for everything inside it. The store only gets the result. */
+// drag and drop for everything inside it, the store only gets the result
 export function DragAndDrop({ children }: { children: ReactNode }) {
-  // Wait until the pointer has moved 6px, so a normal click still selects.
+  // wait for 6px of movement so a normal click still selects
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }))
   const [label, setLabel] = useState('')
 
@@ -35,7 +35,7 @@ export function DragAndDrop({ children }: { children: ReactNode }) {
   function handleDragMove(event: DragMoveEvent) {
     const { history, dropTarget, setDropTarget } = useEditorStore.getState()
     const target = findTarget(event, history.present)
-    // Only tell the store when the place changes, not on every pixel.
+    // only tell the store when the place changes, not on every pixel
     if (target?.parentId !== dropTarget?.parentId || target?.position !== dropTarget?.position) {
       setDropTarget(target)
     }
@@ -72,12 +72,12 @@ export function DragAndDrop({ children }: { children: ReactNode }) {
   )
 }
 
-/** Where the drop would land right now, or null if nowhere (or into itself). */
+// where the drop would land now, null if nowhere or into itself
 function findTarget(event: DragMoveEvent, page: Page): DropTarget | null {
   const { over, activatorEvent, delta } = event
   if (over === null || !(activatorEvent instanceof MouseEvent)) return null
 
-  // Where the pointer is now: where it started, plus how far it has moved.
+  // pointer now = where it started + how far it moved
   const pointerY = activatorEvent.clientY + delta.y
   const ratio = (pointerY - over.rect.top) / over.rect.height
   const target = getDropTarget(page, String(over.id), ratio)
@@ -89,7 +89,7 @@ function findTarget(event: DragMoveEvent, page: Page): DropTarget | null {
   return canPlace(data.type, parentType) ? target : null
 }
 
-/** The pointer is over several elements at once (heading, section, body): pick the smallest. */
+// the pointer is over a few elements at once (heading, section, body), pick the smallest
 const innermostUnderPointer: CollisionDetection = (args) => {
   const area = (id: string | number) => {
     const rect = args.droppableRects.get(id)

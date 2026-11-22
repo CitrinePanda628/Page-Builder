@@ -5,14 +5,14 @@ import { Field, INPUT_CLASS, type FieldInfo } from './field'
 interface SelectControlProps {
   info: FieldInfo
   value: string
-  /** What the element uses now, shown on the "Default" choice. */
+  // what the element uses now, shown on the Default choice
   current: string
   choices: Choice[]
   codeLine: string
   onChange: (value: string) => void
 }
 
-/** A dropdown. Each choice shows its name and its CSS value: "Start / flex-start". */
+// a dropdown, each choice shows its name and its css value: "Start / flex-start"
 export function SelectControl(props: SelectControlProps) {
   const { info, value, current, choices, codeLine, onChange } = props
 

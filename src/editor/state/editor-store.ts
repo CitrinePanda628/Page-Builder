@@ -9,20 +9,20 @@ import { createStarterPage } from './starter'
 export interface EditorStore {
   history: History
   selectedId: string | null
-  /** Where a drag would land right now (the blue line). */
+  // where a drag would land now (the blue line)
   dropTarget: DropTarget | null
-  /** The left panel: the block inserter, the list view, or closed. */
+  // left panel: the block inserter, the list view, or closed
   leftPanel: 'blocks' | 'list' | null
   rightPanel: boolean
   sidebarTab: 'block' | 'page'
-  /** The block under the mouse, outlined on the canvas and in the list view. */
+  // block under the mouse, outlined on the canvas and in the list view
   hoveredId: string | null
   theme: 'light' | 'dark'
-  /** edit: click to select. preview: use the page like a visitor. */
+  // edit: click to select, preview: use the page like a visitor
   mode: 'edit' | 'preview'
-  /** In Preview: the screen size the page is shown at. */
+  // screen size the page is shown at in preview
   device: Device
-  /** The field changed last, like "a1b2:styles:color", to group typing into one undo step. */
+  // field changed last, like "a1b2:styles:color", so typing is one undo step
   lastEdit: string | null
 
   loadPage: (page: Page) => void
@@ -38,7 +38,7 @@ export interface EditorStore {
   toggleRightPanel: () => void
   setSidebarTab: (tab: 'block' | 'page') => void
   setHovered: (id: string | null) => void
-  /** Moves the selected block one place up (-1) or down (1) among its siblings. */
+  // moves the selected block one place up (-1) or down (1) among its siblings
   moveSelected: (step: -1 | 1) => void
   selectParent: () => void
   togglePreview: () => void

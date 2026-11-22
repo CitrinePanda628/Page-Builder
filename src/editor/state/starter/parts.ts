@@ -1,8 +1,8 @@
 import type { Blueprint, Props, Styles } from '../../../core'
 
-// Short ways to write the blocks of the starting page.
+// shortcuts for writing the blocks of the starting page
 
-/** Greys for text and lines, and a range of greens from very light to very dark. */
+// greys for text and lines, and greens from very light to very dark
 export const COLORS = {
   ink: '#18181b',
   muted: '#52525b',
@@ -42,7 +42,7 @@ export function list(items: string[], styles: Styles = {}): Blueprint {
   return { type: 'list', props: { items: items.join('\n') }, styles }
 }
 
-/** Any block that holds others: box('row', { gap: '8px' }, [...children]). */
+// any block that holds others: box('row', { gap: '8px' }, [...children])
 export function box(
   type: string,
   styles: Styles,
@@ -52,14 +52,14 @@ export function box(
   return { type, props, styles, children }
 }
 
-/** A section with a name, so links can jump to it (#projects). */
+// a section with a name so links can jump to it (#projects)
 export function section(name: string, styles: Styles, children: Blueprint[]): Blueprint {
-  return box('section', { padding: '88px 32px', scrollMarginTop: '64px', ...styles }, children, {
+  return box('section', { padding: '88px 20px', scrollMarginTop: '64px', ...styles }, children, {
     name,
   })
 }
 
-/** Keeps content in a centred column. */
+// keeps content in a centred column
 export function column(children: Blueprint[], maxWidth = '1000px'): Blueprint {
   return box(
     'stack',
@@ -77,7 +77,7 @@ export function title(words: string): Blueprint {
   })
 }
 
-/** The short paragraph under a section title, one sentence per line. */
+// the short paragraph under a section title
 export function intro(...sentences: string[]): Blueprint {
   return para(sentences, {
     color: COLORS.muted,
@@ -87,7 +87,7 @@ export function intro(...sentences: string[]): Blueprint {
   })
 }
 
-/** A white card with a thin grey border. */
+// a white card with a thin grey border
 export function card(children: Blueprint[], styles: Styles = {}): Blueprint {
   return box(
     'stack',

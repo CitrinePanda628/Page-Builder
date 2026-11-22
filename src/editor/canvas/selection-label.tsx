@@ -5,10 +5,8 @@ import { useEditorStore, usePage } from '../state/editor-store'
 
 type Spot = { top: number; left: number }
 
-/**
- * The toolbar on the selected block: its type, move up and down, select the parent, delete.
- * It floats over the page, because some tags cannot hold anything (an <hr>, an <input>).
- */
+// the toolbar on the selected block: type, move up and down, select parent, delete
+// it floats over the page because some tags can't hold anything (<hr>, <input>)
 export function SelectionLabel({ pageRef }: { pageRef: RefObject<HTMLDivElement | null> }) {
   const page = usePage()
   const selectedId = useEditorStore((state) => state.selectedId)
@@ -17,7 +15,7 @@ export function SelectionLabel({ pageRef }: { pageRef: RefObject<HTMLDivElement 
   const deleteSelected = useEditorStore((state) => state.deleteSelected)
   const [spot, setSpot] = useState<Spot | null>(null)
 
-  // Bring the selected block into view, e.g. after a click in the list view.
+  // scroll the selected block into view, e.g. after a click in the list view
   useEffect(() => {
     findNode(selectedId)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   }, [selectedId])
@@ -38,7 +36,7 @@ export function SelectionLabel({ pageRef }: { pageRef: RefObject<HTMLDivElement 
     }
     measure()
 
-    // Sizes change (typing, fonts loading) and sticky blocks move while scrolling.
+    // sizes change while typing or loading fonts, and sticky blocks move when you scroll
     const observer = new ResizeObserver(measure)
     observer.observe(node)
     observer.observe(pageBox)
@@ -52,7 +50,7 @@ export function SelectionLabel({ pageRef }: { pageRef: RefObject<HTMLDivElement 
   if (spot === null || selectedId === null) return null
   const element = page.elements[selectedId]
   if (!element) return null
-  // Too close to the top of the page: show the toolbar inside the block instead of above it.
+  // too close to the top, so show the toolbar inside the block instead
   const placement = spot.top > 52 ? '-translate-y-[calc(100%+8px)]' : 'translate-y-2'
 
   return (
@@ -96,7 +94,7 @@ function ToolbarIcon(props: { label: string; onClick: () => void; children: Reac
   )
 }
 
-/** Searches the whole document: an open popup is drawn outside the page. */
+// searches the whole document because an open popup is drawn outside the page
 function findNode(id: string | null) {
   if (id === null) return null
   return document.querySelector(`[data-element-id="${id}"]`)

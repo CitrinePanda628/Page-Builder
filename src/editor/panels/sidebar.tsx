@@ -7,7 +7,7 @@ const TABS = [
   { tab: 'block', label: 'Block' },
 ] as const
 
-/** The right sidebar: the selected block's settings, or the whole page's. */
+// right sidebar: the selected block's settings, or the whole page's
 export function Sidebar() {
   const page = usePage()
   const selectedId = useEditorStore((state) => state.selectedId)

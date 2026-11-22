@@ -6,14 +6,9 @@ import { OVERLAY_LAYER_ID } from '../../canvas/overlay-layer'
 import { useEditorStore, useIsPreview, usePage } from '../../state/editor-store'
 import { getAttributes, type TagProps } from './tag-props'
 
-/**
- * A button, and a box that opens on top of the page (a "modal").
- * The box is position: fixed, so it stays in view however far you scrolled.
- * While editing, it is open while it (or something in it) is selected.
- *
- * createPortal draws the box in the canvas's overlay layer instead of where the popup sits.
- * Inside a parent with a transform or a blur, fixed would be measured against that parent.
- */
+// a button plus a box that opens on top of the page (a modal)
+// while editing it's open when it or something in it is selected
+// createPortal draws the box in the overlay layer, because inside a parent with a transform or blur, fixed gets measured against that parent
 export function PopupTag({ element, editorProps, childViews, endLine }: TagProps) {
   const { ref, className } = editorProps
   const attributes = getAttributes(element, editorProps)

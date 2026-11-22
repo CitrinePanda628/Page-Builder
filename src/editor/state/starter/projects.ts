@@ -71,22 +71,20 @@ const PAGE_BUILDER = project({
   label: 'Page Builder',
   summary: [
     'A visual page builder in the style of the **WordPress block editor**, where you put a web page together from blocks and style it without writing any code.',
-    'This website is a page made with it, so everything you see here can be selected, changed and exported.',
+    'This website is a page made with it, so everything you see here can be selected and changed.',
   ],
   tech: ['React', 'TypeScript', 'Zustand', 'Tailwind CSS', 'dnd-kit', 'Vite', 'Vitest'],
   does: [
-    'You build a page from blocks such as sections, rows, grids, headings, lists, buttons, forms, accordions, tabs and pop-ups, adding each one from the inserter with a click or by **dragging it onto the page**.',
-    'When you select a block a toolbar appears above it, so you can move it up or down, jump to the block around it or delete it, while the list view shows the whole page as a tree you can click through.',
-    'The **settings panel** only shows the options that make sense for the selected block, and each option shows the **CSS** it writes and whether the value was set by you or comes from the default.',
-    'Every change can be undone and redone, and you can preview the page at **phone, tablet and desktop** widths and click through it the way a visitor would.',
-    'When the page is finished you can export it as clean HTML and **CSS**, or as a **React component** that you can drop straight into another project.',
+    'System allow user to create a page from blocks such as sections, rows, grids, headings, lists, buttons, forms, accordions, tabs and pop ups, adding each one from the inserter with a click or by **dragging it onto the page**.',
+    'When you select a block a toolbar appears above it allowing  user to move it either up or down, jump to the block around it or delete it while the list view shows the whole page as a tree you can click through.',
+    'The **settings panel** only shows the options that make sense for the selected block and each option shows the **CSS** it writes.',
+    'Every change can be undone and redone and user can preview the page at **phone, tablet and desktop** widths and click through it the way a visitor would.',
   ],
   built: [
-    'The page is stored as a flat list of blocks, where each block knows its type, its content, its styles and the blocks inside it, which keeps finding, moving and deleting blocks quick and simple.',
-    'The core functions never change a page in place but always return a new copy, which is what makes the **undo and redo history** reliable.',
-    'A **Zustand store** holds the page, its history and the current selection, and every click, drag and edit goes through a **store action** so that the canvas, **settings panel** and list view always stay in step.',
+    'The page is stored as a flat list of blocks where each block knows its type, its content, its styles and the blocks inside it which keeps finding, moving and deleting blocks quick and simple.',
+    'The core functions never change a page in place but always return a new copy which is what makes the **undo and redo history** reliable.',
+    'A **Zustand store** holds the page, its history and the current selection and every click, drag and edit goes through a **store action** so that the canvas, **settings panel** and list view always stay in step.',
     'The canvas is a **React component** that draws each block as its real HTML tag and then draws itself again for every block inside it, while **dnd-kit** handles the dragging and shows where a block will land.',
-    'The export walks the same block tree to write **HTML or JSX**, and **Vitest tests** check the core logic and even compile the exported React code to prove that it is valid.',
   ],
 })
 
@@ -143,8 +141,6 @@ const SIMULATOR = project({
     'The roads, junctions and cars are drawn with **HTML5 Canvas** and redrawn many times a second, so the traffic moves smoothly.',
     'Each **AI** car decides what to do from its own position and speed and from the cars around it, which makes the traffic behave in a believable way.',
     'Saved scenarios are stored in **MongoDB** through a small **Node.js** server, and I kept them as documents because each scenario has a different shape.',
-    'When the AI cars kept getting stuck waiting for each other at junctions, I **reproduced the problem** on purpose, **logged every decision** the cars made and changed one rule at a time until the traffic flowed again.',
-    'I asked **testers** to try it and report anything that felt wrong, then reproduced and fixed each problem and checked every fix against the saved scenarios.',
   ],
 })
 
@@ -161,23 +157,21 @@ const CLINIC = project({
   ],
   built: [
     'I designed and built the **MySQL** database and connected it to the application through **Entity Framework**, so that each table became a **C# class** the rest of the code could work with.',
-    'We met the clinic’s **stakeholders and customers** regularly to show them our progress, and every issue they raised was written down, fixed and then checked with them again.',
-    'Their **feedback** changed the system as we went along, so the final version was shaped by the people who would actually use it rather than by our first guesses.',
-    'We finished by writing **documentation** that explains how the system works and how to set it up, so that other people could run it and keep it going after us.',
+    'Communicated with the clinic’s **stakeholders and customers** regularly to show them our progress, and every issue they raised was written down, fixed and then checked with them again.',
+    'Continued to refine the system as we went along so the final version was shaped by the people who would actually use it.',
+    'Wrote comprehensive **documentation** that explains how the system works and how to set it up so that other people could run it and keep it going.',
   ],
 })
 
 export const PROJECTS: Blueprint = section('projects', {}, [
   column([
     title('Projects'),
-    intro(
-      'Here are five things I’ve built, starting with the page builder that you’re already inside.',
-    ),
+    intro('Five projects i’ve built, starting with the page builder that you’re already inside.'),
     box(
       'tabs',
       {
         color: COLORS.ink,
-        padding: '28px',
+        padding: '20px',
         backgroundColor: COLORS.white,
         borderRadius: '12px',
         borderStyle: 'solid',

@@ -1,10 +1,8 @@
 import { useEffect } from 'react'
 import { useEditorStore } from './editor-store'
 
-/**
- * Delete or Backspace: delete. Ctrl+Z: undo. Ctrl+Shift+Z: redo (Cmd on a Mac).
- * Escape: leave preview, or unselect. Off while you type in a box.
- */
+// Delete or Backspace deletes, Ctrl+Z undoes, Ctrl+Shift+Z redoes (Cmd on a Mac)
+// Escape leaves preview or unselects, and all of it is off while you type in a box
 export function useKeyboardShortcuts(): void {
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {

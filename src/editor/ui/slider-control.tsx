@@ -3,14 +3,14 @@ import { KeywordChips } from './keyword-chips'
 
 interface SliderControlProps {
   info: FieldInfo
-  /** '12px', or a keyword such as 'large'. */
+  // '12px' or a keyword like 'large'
   value: string
-  /** What the element uses now, like '16px'. */
+  // what the element uses now, like '16px'
   current: string
   min: number
   max: number
   step: number
-  /** Added after the number: 'px', '%', or '' for none. */
+  // added after the number: 'px', '%', or '' for none
   unit: string
   startAt: number
   keywords: string[]
@@ -18,11 +18,11 @@ interface SliderControlProps {
   onChange: (value: string) => void
 }
 
-/** A quick slider, plus a box that takes any value: '48px', '3rem', 'large'. */
+// a quick slider plus a box that takes any value: '48px', '3rem', 'large'
 export function SliderControl(props: SliderControlProps) {
   const { info, value, current, min, max, step, unit, startAt, keywords, codeLine, onChange } =
     props
-  // parseFloat('12px') is 12. Not set: the slider shows what is used now.
+  // parseFloat('12px') is 12, and if it's not set the slider shows what's used now
   const number = parseFloat(value || current)
   const position = Number.isNaN(number) ? startAt : number
 

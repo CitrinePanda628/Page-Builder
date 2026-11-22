@@ -9,7 +9,6 @@ const TABS = [
   { panel: 'list', label: 'List view' },
 ] as const
 
-/** The left panel: add blocks, or see the page as a list. */
 export function LeftPanel() {
   const leftPanel = useEditorStore((state) => state.leftPanel)
   const setLeftPanel = useEditorStore((state) => state.setLeftPanel)

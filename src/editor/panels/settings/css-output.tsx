@@ -4,7 +4,7 @@ import type { PageElement } from '../../../core'
 import { SettingsGroup } from './settings-group'
 import { toCss } from './to-css'
 
-/** The element's styles as you would write them in a .css file. */
+// the element's styles the way you'd write them in a .css file
 export function CssOutput({ element }: { element: PageElement }) {
   const [copied, setCopied] = useState(false)
   const css = toCss(element)

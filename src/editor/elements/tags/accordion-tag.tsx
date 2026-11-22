@@ -1,10 +1,8 @@
 import { useIsPreview } from '../../state/editor-store'
 import { getAttributes, type TagProps } from './tag-props'
 
-/**
- * A title you click to open or close the content: <details> and <summary> in HTML.
- * While editing it is always open, so you can change what is inside.
- */
+// a title you click to open or close the content (<details> and <summary>)
+// it's always open while editing so you can change what's inside
 export function AccordionTag({ element, editorProps, childViews, endLine }: TagProps) {
   const { ref, className } = editorProps
   const attributes = getAttributes(element, editorProps)
@@ -13,7 +11,7 @@ export function AccordionTag({ element, editorProps, childViews, endLine }: TagP
 
   return (
     <details
-      // A new key when the mode changes: React makes a fresh <details>, open or closed again.
+      // new key when the mode changes so react makes a fresh <details>
       key={isPreview ? 'preview' : 'edit'}
       ref={ref}
       open={!isPreview || startsOpen}

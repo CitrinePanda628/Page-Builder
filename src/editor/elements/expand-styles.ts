@@ -8,7 +8,7 @@ export function expandBox(value: string): [string, string, string, string] {
   return [top, right, bottom, left]
 }
 
-// React warns when a tag mixes `padding` and `paddingTop`, so hand it the four sides only.
+// react warns if a tag mixes padding and paddingTop, so give it the four sides only
 export function expandStyles(styles: Styles): Styles {
   const result: Styles = { ...styles }
 

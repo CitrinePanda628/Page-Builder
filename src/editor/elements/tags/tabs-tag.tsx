@@ -3,10 +3,8 @@ import { getElement, isInside } from '../../../core'
 import { useEditorStore, useIsPreview, usePage } from '../../state/editor-store'
 import { getAttributes, type TagProps } from './tag-props'
 
-/**
- * A row of tab buttons, and the content of the active tab.
- * While editing, the tab that holds the selected element is the active one.
- */
+// a row of tab buttons and the content of the active one
+// while editing, the tab that holds the selected element is the active one
 export function TabsTag({ element, editorProps, childViews }: TagProps) {
   const { ref, className } = editorProps
   const attributes = getAttributes(element, editorProps)

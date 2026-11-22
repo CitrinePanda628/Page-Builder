@@ -1,13 +1,11 @@
 import type { PageElement, Styles } from '../../../core'
 import { toCssName } from '../../ui/css-name'
 
-/**
- * A heading named "title" with { fontSize: '32px' }:
- *   #title {
- *     font-size: 32px;
- *   }
- * Without a name it uses the type: .heading { ... }
- */
+// a heading named "title" with { fontSize: '32px' } gives
+//  #title {
+//    font-size: 32px;
+//  }
+// without a name it uses the type instead: .heading { ... }
 export function toCss(element: PageElement): string {
   const selector = element.props.name ? `#${element.props.name}` : `.${element.type}`
   return toBlock(selector, element.styles)

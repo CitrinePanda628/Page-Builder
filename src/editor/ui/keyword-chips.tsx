@@ -1,11 +1,11 @@
 interface KeywordChipsProps {
   keywords: string[]
-  /** The current value: its chip is highlighted. */
+  // the current value, its chip is highlighted
   value: string
   onPick: (keyword: string) => void
 }
 
-/** Small buttons with ready-made values, like 'auto' or 'x-large'. */
+// small buttons with ready-made values like 'auto' or 'x-large'
 export function KeywordChips({ keywords, value, onPick }: KeywordChipsProps) {
   if (keywords.length === 0) return null
 

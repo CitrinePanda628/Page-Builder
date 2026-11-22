@@ -39,7 +39,7 @@ const CONTACT_POPUP: Blueprint = box(
   { buttonText: 'Get in touch', name: 'contact' },
 )
 
-/** Sticks to the top while you scroll. */
+// sticks to the top while you scroll
 export const HEADER: Blueprint = box(
   'row',
   {
@@ -51,7 +51,7 @@ export const HEADER: Blueprint = box(
     justifyContent: 'space-between',
     alignItems: 'center',
     gap: '16px',
-    padding: '12px 32px',
+    padding: '12px 20px',
     backgroundColor: 'rgb(255 255 255 / 0.9)',
     backdropFilter: 'blur(10px)',
     borderBottomStyle: 'solid',
@@ -72,7 +72,7 @@ export const HEADER: Blueprint = box(
   { name: 'header' },
 )
 
-/** Pinned to the corner of the screen. */
+// pinned to the corner of the screen
 export const BACK_TO_TOP: Blueprint = link('↑ Top', '#about', {
   position: 'fixed',
   right: '24px',

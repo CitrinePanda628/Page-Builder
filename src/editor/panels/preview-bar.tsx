@@ -9,7 +9,7 @@ const DEVICES: { device: Device; label: string; icon: LucideIcon }[] = [
   { device: 'phone', label: 'Phone', icon: Smartphone },
 ]
 
-/** The top bar in Preview: the screen sizes, and the way back. */
+// top bar in preview: the screen sizes and the way back
 export function PreviewBar() {
   const device = useEditorStore((state) => state.device)
   const setDevice = useEditorStore((state) => state.setDevice)

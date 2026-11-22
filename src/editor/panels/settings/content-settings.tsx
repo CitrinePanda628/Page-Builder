@@ -6,7 +6,7 @@ import { TextControl } from '../../ui/text-control'
 import { CONTENT_FIELDS, NAME_FIELD, type ContentField } from './content-fields'
 import { SettingsGroup } from './settings-group'
 
-/** The element's own content, with the HTML each box makes, and its name. */
+// the element's own content with the html each box makes, plus its name
 export function ContentSettings({ element }: { element: PageElement }) {
   if (element.parentId === null) return null
   const fields = [...(CONTENT_FIELDS[element.type] ?? []), NAME_FIELD]
@@ -64,7 +64,7 @@ function ContentBox({ element, field }: { element: PageElement; field: ContentFi
   )
 }
 
-/** Tabs hold only tabs, so a new tab is added with this button instead of the Add panel. */
+// tabs only hold tabs, so a new tab comes from this button and not the Add panel
 function AddTabButton({ element }: { element: PageElement }) {
   const addNewElement = useEditorStore((state) => state.addNewElement)
   const page = useEditorStore((state) => state.history.present)

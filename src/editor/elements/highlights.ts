@@ -1,9 +1,5 @@
-/**
- * Words wrapped in **double stars** are highlighted: shown in bold, in the page's
- * highlight colour (the --highlight setting on the page, or the text's own colour).
- *
- *   splitHighlights('I use **React** daily')  ->  ['I use ', { bold: 'React' }, ' daily']
- */
+// words in **double stars** are shown bold in the page's highlight colour
+// splitHighlights('I use **React** daily')  ->  ['I use ', { bold: 'React' }, ' daily']
 export type Piece = string | { bold: string }
 
 export function splitHighlights(text: string): Piece[] {
@@ -13,6 +9,6 @@ export function splitHighlights(text: string): Piece[] {
     .filter((piece) => piece !== '')
 }
 
-/** The CSS for a highlighted word, in the editor (as a Tailwind class) and in the export. */
+// the css for a highlighted word, as a Tailwind class
 export const HIGHLIGHT_CLASS = 'font-bold [color:var(--highlight,inherit)]'
 export const HIGHLIGHT_CSS = 'strong { font-weight: 700; color: var(--highlight, inherit); }'

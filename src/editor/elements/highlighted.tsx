@@ -1,6 +1,6 @@
 import { HIGHLIGHT_CLASS, splitHighlights } from './highlights'
 
-/** Text with its **highlighted** words drawn as <strong>. */
+// text with its **highlighted** words drawn as <strong>
 export function Highlighted({ text }: { text: string }) {
   return splitHighlights(text).map((piece, index) =>
     typeof piece === 'string' ? (

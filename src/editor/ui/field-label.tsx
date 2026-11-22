@@ -7,7 +7,7 @@ interface FieldLabelProps {
   onReset: () => void
 }
 
-/** "Label / code-name", the (i) with help on hover, a Set or Default mark, and Reset. */
+// "Label / code-name", the (i) with help on hover, a Set or Default mark, and Reset
 export function FieldLabel({ info, isSet, onReset }: FieldLabelProps) {
   const { label, code, help } = info
 
@@ -27,7 +27,7 @@ export function FieldLabel({ info, isSet, onReset }: FieldLabelProps) {
         >
           <Info size={15} />
         </button>
-        {/* Placed against the whole control (relative), so it is as wide as the panel. */}
+        {/* relative to the whole control so it's as wide as the panel */}
         <span
           role="tooltip"
           className="invisible absolute inset-x-0 top-7 z-30 rounded-lg bg-ink p-3 text-sm leading-relaxed font-normal whitespace-pre-line text-panel shadow-xl group-focus-within/help:visible group-hover/help:visible"
@@ -51,7 +51,7 @@ export function FieldLabel({ info, isSet, onReset }: FieldLabelProps) {
   )
 }
 
-/** Set: this element has its own value. Default: it uses what the browser or its parent gives. */
+// Set: this element has its own value. Default: it uses what the browser or its parent gives
 function StatusMark({ isSet }: { isSet: boolean }) {
   return isSet ? (
     <span className="flex items-center gap-1 rounded-full bg-good-soft px-2 py-0.5 text-xs text-good">

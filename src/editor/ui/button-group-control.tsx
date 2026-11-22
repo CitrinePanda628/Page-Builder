@@ -5,14 +5,14 @@ import { Field, type FieldInfo } from './field'
 interface ButtonGroupControlProps {
   info: FieldInfo
   value: string
-  /** What the element uses now; its button gets a dashed ring while nothing is set. */
+  // what the element uses now, its button gets a dashed ring while nothing is set
   current: string
   choices: Choice[]
   codeLine: string
   onChange: (value: string) => void
 }
 
-/** A row of buttons; the set one is filled. Click it again to unset it. */
+// a row of buttons, the set one is filled, click it again to unset it
 export function ButtonGroupControl(props: ButtonGroupControlProps) {
   const { info, value, current, choices, codeLine, onChange } = props
 

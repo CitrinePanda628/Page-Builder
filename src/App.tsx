@@ -1,7 +1,13 @@
+import { Analytics } from '@vercel/analytics/react'
 import { Editor } from './editor/editor'
 
 function App() {
-  return <Editor />
+  return (
+    <>
+      <Editor />
+      <Analytics />
+    </>
+  )
 }
 
 export default App

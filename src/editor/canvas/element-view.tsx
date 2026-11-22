@@ -7,7 +7,7 @@ import { useEditorStore, useIsPreview, usePage } from '../state/editor-store'
 import type { DragData } from './drag-and-drop'
 import { followLink } from './follow-link'
 
-/** Draws one element of the page, and inside it all of its children. */
+// draws one element and all of its children
 export function ElementView({ elementId }: { elementId: string }) {
   const page = usePage()
   const selectedId = useEditorStore((state) => state.selectedId)
@@ -42,7 +42,7 @@ export function ElementView({ elementId }: { elementId: string }) {
     drag.isDragging ? 'opacity-40' : '',
   ].join(' ')
 
-  // The blue line among the children: at a position, or -1 for nowhere.
+  // the blue line between children, -1 for none
   const lineAt = dropTarget?.parentId === element.id ? dropTarget.position : -1
 
   const childViews = element.children.map((childId, index) => (
@@ -80,13 +80,13 @@ function getOutline(isSelected: boolean, isHovered: boolean): string {
   return ''
 }
 
-/** An empty container gets a dashed outline and some height to drop into. */
+// an empty container gets a dashed outline and some height to drop into
 function getEditClasses(isEmptyContainer: boolean): string {
   const empty = 'min-h-24 outline-2 -outline-offset-4 outline-green-300 outline-dashed'
   return `cursor-pointer ${isEmptyContainer ? empty : ''}`
 }
 
-/** Shows where a drop will land. It takes up no room (-my-0.5 on h-1). */
+// shows where a drop will land, takes up no room (-my-0.5 on h-1)
 function DropLine() {
   return <div className="pointer-events-none -my-0.5 h-1 rounded-full bg-accent" />
 }

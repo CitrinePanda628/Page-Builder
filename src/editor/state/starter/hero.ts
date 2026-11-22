@@ -10,7 +10,7 @@ const BUTTON = {
 
 export const HERO: Blueprint = section(
   'about',
-  { padding: '120px 32px 104px', backgroundColor: GREENS.wash },
+  { padding: '120px 20px 104px', backgroundColor: GREENS.wash },
   [
     box(
       'stack',
@@ -30,8 +30,9 @@ export const HERO: Blueprint = section(
         }),
         para(
           [
-            'I’m a software engineer from Manchester, and I graduated from the University of Bolton in 2026 with First Class Honours in Software Engineering.',
+            'I’m from Manchester and graduated from the University of Bolton in 2026 with First Class Honours in Software Engineering.',
             'This whole site runs inside a page builder that I made, so you can click on anything to see how it’s built.',
+            'To interact with the page links, click the **Preview** button in the top right corner.',
           ],
           { fontSize: '20px', lineHeight: '1.7', maxWidth: '760px', color: COLORS.muted },
         ),
@@ -50,7 +51,7 @@ export const HERO: Blueprint = section(
               backgroundColor: GREENS.main,
               color: COLORS.white,
             }),
-            link('Download CV', '/cv.pdf', {
+            link('See CV', '/Fayz_Muhammad_CV.pdf', {
               ...BUTTON,
               color: GREENS.deep,
               backgroundColor: COLORS.white,

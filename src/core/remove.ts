@@ -1,7 +1,7 @@
 import { getBranchIds, getParent } from './read'
 import type { Page } from './types'
 
-/** Removes an element and everything inside it. The body cannot be removed. */
+// removes an element and everything in it, the body can't be removed
 export function removeElement(page: Page, id: string): Page {
   const parent = getParent(page, id)
   const elements = { ...page.elements }

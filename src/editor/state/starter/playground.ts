@@ -27,7 +27,7 @@ function named(name: string, blueprint: Blueprint): Blueprint {
   return { ...blueprint, props: { ...blueprint.props, name } }
 }
 
-/** One experiment: what to do, the block to do it on, and why it works. */
+// one experiment: what to do, the block to do it on, and why it works
 function experiment(name: string, tryThis: string, why: string, demo: Blueprint): Blueprint {
   return card([
     heading(name, { fontSize: '19px', color: GREENS.forest }),
@@ -37,7 +37,7 @@ function experiment(name: string, tryThis: string, why: string, demo: Blueprint)
   ])
 }
 
-// Bright, easy-to-tell-apart colours for the demo blocks.
+// bright colours that are easy to tell apart
 const ABC = [tile('A', '#15803d'), tile('B', '#0d9488'), tile('C', '#65a30d')]
 const MIX = ['#16a34a', '#0d9488', '#65a30d', '#059669']
 

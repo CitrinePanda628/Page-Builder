@@ -1,4 +1,3 @@
-import { transformWithOxc } from 'vite'
 import { describe, expect, it } from 'vitest'
 import {
   addElement,
@@ -17,11 +16,6 @@ import {
 import { getDropTarget } from './editor/canvas/drop-target'
 import { ELEMENT_TYPES, canPlace } from './editor/elements/element-types'
 import { expandBox } from './editor/elements/expand-styles'
-import { exportPage } from './editor/export'
-import { getClassNames } from './editor/export/class-names'
-import { toPageCss } from './editor/export/css'
-import { toHtml } from './editor/export/html'
-import { toReact } from './editor/export/react'
 import { CONTENT_FIELDS } from './editor/panels/settings/content-fields'
 import { STYLE_GROUPS } from './editor/panels/settings/style-groups'
 import { toCssLine } from './editor/ui/css-name'
@@ -206,67 +200,13 @@ describe('Part 10: blueprints and interactive elements', () => {
   })
 })
 
-describe('Part 11: export', () => {
-  it('class names: a name if there is one, else type + a number', () => {
-    const page = buildPage([
-      { type: 'heading' },
-      { type: 'heading', props: { name: 'Our Menu!' } },
-      { type: 'heading' },
-    ])
-    const names = Object.values(getClassNames(page))
-
-    expect(names).toEqual(['page', 'heading-1', 'our-menu', 'heading-2'])
-  })
-
-  it('the CSS has the base look of the types used, then own styles', () => {
-    const page = buildPage([{ type: 'button', styles: { color: 'red' } }])
-    const css = toPageCss(page, getClassNames(page))
-
-    expect(css).toContain('.pb-button {')
-    expect(css).not.toContain('.pb-quote')
-    expect(css).toContain('.button-1 {\n  color: red;\n}')
-  })
-
-  it('the HTML escapes text, and adds the script only for tabs and popups', () => {
-    const plain = toHtml(buildPage([{ type: 'text', props: { text: 'Fish & <chips>' } }]))
-    const withTabs = toHtml(createStarterPage())
-
-    expect(plain).toContain('<p class="text-1">Fish &amp; &lt;chips&gt;</p>')
-    expect(plain).not.toContain('<script>')
-    expect(withTabs).toContain('<script>')
-  })
-
-  it('the React code of the starter page is valid JSX, with state for tabs and popups', async () => {
-    const code = toReact(createStarterPage())
-
-    expect(code).toContain('const [activeTab1, setActiveTab1] = useState(0)')
-    await expect(transformWithOxc(code, 'Page.jsx')).resolves.toBeDefined()
-  })
-
-  it('keeps line breaks in text, in HTML and in React', () => {
-    const page = buildPage([{ type: 'text', props: { text: 'One line.\nNext line.' } }])
-
-    expect(toHtml(page)).toContain('One line.\nNext line.')
-    expect(toReact(page)).toContain('{"One line.\\nNext line."}')
-  })
-
-  it('words in **two stars** are highlighted, in the editor and in the export', () => {
+describe('Part 11: highlighted words', () => {
+  it('words in **two stars** are highlighted in the editor', () => {
     expect(splitHighlights('I use **React** daily')).toEqual([
       'I use ',
       { bold: 'React' },
       ' daily',
     ])
-
-    const page = buildPage([{ type: 'text', props: { text: 'I use **React** daily' } }])
-    expect(toHtml(page)).toContain('<p class="text-1">I use <strong>React</strong> daily</p>')
-    expect(toReact(page)).toContain('<p className="text-1">I use <strong>React</strong> daily</p>')
-    const starter = createStarterPage()
-    expect(toPageCss(starter, getClassNames(starter))).toContain('--highlight: #166534;')
-  })
-
-  it('exports three files', () => {
-    const names = exportPage(createStarterPage()).map((file) => file.name)
-    expect(names).toEqual(['index.html', 'styles.css', 'Page.jsx'])
   })
 })
 

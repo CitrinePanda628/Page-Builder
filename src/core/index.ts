@@ -1,4 +1,4 @@
-// The one door to the core: other folders import from '../core'.
+// everything imports the core from here
 export type { Blueprint } from './blueprint'
 export type { History } from './history'
 export type { Page, PageElement, Props, Styles } from './types'

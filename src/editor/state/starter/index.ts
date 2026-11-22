@@ -5,7 +5,7 @@ import { HERO } from './hero'
 import { PLAYGROUND } from './playground'
 import { PROJECTS } from './projects'
 
-/** The page the editor opens with: about me, built with the editor itself. */
+// the page the editor opens with, about me and built with the editor itself
 export function createStarterPage(): Page {
   return buildPage([HEADER, HERO, PROJECTS, EXPERIENCE, SKILLS, PLAYGROUND, BACK_TO_TOP], {
     fontFamily: 'Inter, system-ui, sans-serif',

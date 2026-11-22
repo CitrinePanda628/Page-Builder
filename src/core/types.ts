@@ -1,13 +1,13 @@
-/** CSS styles, the JavaScript way: { color: 'brown', fontSize: '32px' } */
+// css styles the js way: { color: 'brown', fontSize: '32px' }
 export type Styles = Record<string, string>
 
-/** Content: { text: 'Fresh bread' }, { href: '#menu' } */
+// content like { text: 'Fresh bread' } or { href: '#menu' }
 export type Props = Record<string, string>
 
 export interface PageElement {
   id: string
   type: string
-  /** null for the body, which sits inside nothing. */
+  // null for the body, it sits in nothing
   parentId: string | null
   children: string[]
   props: Props

@@ -6,7 +6,6 @@ import { TopBar } from './panels/top-bar'
 import { useEditorStore } from './state/editor-store'
 import { useKeyboardShortcuts } from './state/use-keyboard-shortcuts'
 
-/** The whole editor: top bar, left panel, the page, and the settings sidebar. */
 export function Editor() {
   useKeyboardShortcuts()
   const theme = useEditorStore((state) => state.theme)
@@ -16,7 +15,7 @@ export function Editor() {
   const showLeft = leftPanel !== null && !isPreview
   const showRight = rightPanel && !isPreview
 
-  // The width of each column changes while the app runs, so it is a style.
+  // column widths change while the app runs so they're a style
   const columns = [showLeft ? '300px' : '', '1fr', showRight ? '360px' : '']
     .filter(Boolean)
     .join(' ')

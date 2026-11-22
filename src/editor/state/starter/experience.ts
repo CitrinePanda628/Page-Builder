@@ -43,14 +43,12 @@ export const EXPERIENCE: Blueprint = section('experience', { backgroundColor: GR
       job('Developer placement, University of Bolton', 'Nov 2025 – Apr 2026 · six months', [
         'I worked on the university’s **mobile app** alongside a team of students and an outside company, at a time when the app had become slow and students were sometimes shown data that didn’t match.',
         'Most of my work was on the **database**, where I used **Python and SQL** to time the queries behind the app on **MariaDB**, find the slow and repeated ones and change how the app fetched its data.',
-        'I **rebuilt several screens** so that they looked and worked like the rest of the app, and took on other tasks whenever the team needed a hand.',
-        'Working in a codebase I hadn’t written, with people I hadn’t worked with before, taught me to measure a problem before changing anything and to **speak up early** when I was stuck.',
+        'I also took part in updating the university’s web application and carrying out a full overhaul of it, alongside working on the mobile app.',
       ]),
       job('Pharmacy team manager, PDS Pharmacy, Manchester', 'Sep 2024 – now · part-time', [
         'I **lead a team of three** on the processing and delivery side of the **supply chain**, taking in medicine from other pharmacies, checking and sorting it, planning the driver’s route and handing everything over to the driver.',
         'When our deliveries kept running late I **traced the real cause**, tested a new way of working and only rolled it out once it had proved itself, which now saves us **about two hours a day**.',
         'I brought in **quality checks** at the point where mistakes were starting, so that the same errors stopped coming back.',
-        'To get the team on board with the new routine I **explained the reason** behind it first and we tried it out together, and day to day I keep the **drivers, pharmacy staff and managers** talking to each other.',
       ]),
     ],
     '860px',

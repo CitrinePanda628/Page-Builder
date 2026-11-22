@@ -6,12 +6,12 @@ interface SettingsGroupProps {
   description: string
   icon: LucideIcon
   startsOpen: boolean
-  /** How many settings in it have a value. Left out: no count. */
+  // how many settings in it have a value, leave it out for no count
   setCount?: number
   children: ReactNode
 }
 
-/** A panel of settings that opens and closes when you click its title. */
+// a panel of settings, click the title to open or close it
 export function SettingsGroup(props: SettingsGroupProps) {
   const { title, description, icon: Icon, startsOpen, setCount, children } = props
 

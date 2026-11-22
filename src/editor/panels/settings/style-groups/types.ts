@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react'
 import type { Styles } from '../../../../core'
 import type { Choice } from '../../../ui/choice'
 
-/** How a style is edited. `keywords` are ready-made values shown as small buttons. */
+// how a style is edited, keywords are ready-made values shown as small buttons
 export type Control =
   | { kind: 'text'; placeholder: string; keywords: string[] }
   | { kind: 'select'; choices: Choice[] }
@@ -14,26 +14,26 @@ export type Control =
       step: number
       unit: string
       keywords: string[]
-      /** Where the slider sits while the style is empty. */
+      // where the slider sits while the style is empty
       startAt: number
     }
   | { kind: 'color' }
   | { kind: 'sides' }
 
 export interface StyleSetting {
-  /** The CSS property, the React way: 'justifyContent' for justify-content. */
+  // the css property the react way: 'justifyContent' for justify-content
   key: string
   label: string
-  /** Shown on the (i): what it does, and something to try. */
+  // shown on the (i): what it does and something to try
   help: string
   control: Control
-  /** Only shown while another style has one of these values. */
+  // only shown while another style has one of these values
   onlyWhen?: { key: string; values: string[] }
-  /** Only shown for these element types (see `only` and `except` below). Empty: all. */
+  // only for these element types (see only and except below), empty means all
   showFor?: TypeRule
 }
 
-/** A button that sets several styles at once. */
+// a button that sets several styles at once
 export interface Preset {
   label: string
   styles: Styles
@@ -43,29 +43,29 @@ export interface StyleGroup {
   title: string
   icon: LucideIcon
   description: string
-  /** Which element types see this group. */
+  // which element types see this group
   showFor: TypeRule
   presets: Preset[]
   settings: StyleSetting[]
 }
 
-/** Says for which element types a group or setting makes sense: (type) => true or false. */
+// says which element types a group or setting fits
 export type TypeRule = (type: string) => boolean
 
 export const ALL: TypeRule = () => true
 export const NOT_BODY: TypeRule = (type) => type !== 'body'
 
-/** only('row', 'stack'): just these types. */
+// only('row', 'stack'): just these types
 export function only(...types: string[]): TypeRule {
   return (type) => types.includes(type)
 }
 
-/** except('divider'): every type but these. */
+// except('divider'): every type but these
 export function except(...types: string[]): TypeRule {
   return (type) => !types.includes(type)
 }
 
-/** Elements that hold others and arrange them (not tabs or accordions, which arrange their own). */
+// elements that hold others and arrange them (not tabs or accordions, they arrange their own)
 export const BOXES = only(
   'body',
   'section',
@@ -78,7 +78,7 @@ export const BOXES = only(
   'popup',
 )
 
-// Short ways to write the controls.
+// shortcuts for writing the controls
 
 export function text(placeholder: string, keywords: string[] = []): Control {
   return { kind: 'text', placeholder, keywords }
